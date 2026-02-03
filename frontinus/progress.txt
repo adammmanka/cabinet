@@ -2,3 +2,18 @@
 
 ## Learnings
 - (none yet)
+
+## Iteration 1 — Add initial placeholder task
+- What was done
+  - Marked the first PRD task complete.
+- Files affected
+  - PRD.md
+  - progress.txt
+- Learnings for next cycles:
+  - Patterns
+    - Keep the PRD/progress files present in the workspace root; the agent loop depends on them.
+  - Traps
+    - If PRD.md/progress.txt are missing, the cycle can’t start (no task discovery).
+  - Helpful context
+    - This iteration was a bootstrap to confirm commit/push flow.
+---
