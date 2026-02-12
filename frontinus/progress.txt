@@ -1,7 +1,8 @@
 # progress
 
 ## Learnings
-- (none yet)
+- Ralph agent can silently return **empty payloads** via `openclaw agent --agent ralph --json` even when status=ok; don’t assume messaging works—validate payloads.
+- The OpenClaw gateway log can show full run metadata even when payloads are empty; use `/tmp/openclaw/openclaw-YYYY-MM-DD.log` for diagnosis.
 
 ## Iteration 1 — Add initial placeholder task
 - What was done
