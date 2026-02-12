@@ -6,6 +6,7 @@
 ## Iteration 1 — Add initial placeholder task
 - What was done
   - Marked the first PRD task complete.
+  - NOTE: In a prior run, the agent incorrectly auto-created PRD/progress when missing. Don’t do that; fail fast instead.
 - Files affected
   - PRD.md
   - progress.txt
