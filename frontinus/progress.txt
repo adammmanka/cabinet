@@ -4,6 +4,23 @@
 - Ralph agent can silently return **empty payloads** via `openclaw agent --agent ralph --json` even when status=ok; don’t assume messaging works—validate payloads.
 - The OpenClaw gateway log can show full run metadata even when payloads are empty; use `/tmp/openclaw/openclaw-YYYY-MM-DD.log` for diagnosis.
 
+## Iteration 2 — Prevent bootstrap files from being auto-created by the agent
+- What was done
+  - Investigated where auto-creation could happen; determined it’s a process/config issue (agent ran in wrong workspace), not repo code.
+  - Captured evidence that `openclaw agent --agent ralph --json` can return status=ok with **empty payloads**; documented in Learnings.
+- Files affected
+  - PRD.md
+  - progress.txt
+- Learnings for next cycles:
+  - Patterns
+    - Treat missing PRD/progress as a hard failure condition; don’t generate them.
+    - Validate agent runs by checking payloads, not just status.
+  - Traps
+    - If an agent is pointed at the wrong workspace, it will appear “blocked” and you may be tempted to bootstrap files—don’t.
+  - Helpful context
+    - `openclaw status --all --json` and `/tmp/openclaw/openclaw-YYYY-MM-DD.log` include `workspaceDir` and full run metadata.
+---
+
 ## Iteration 1 — Add initial placeholder task
 - What was done
   - Marked the first PRD task complete.
