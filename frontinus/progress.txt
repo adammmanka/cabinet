@@ -4,6 +4,23 @@
 - Ralph agent can silently return **empty payloads** via `openclaw agent --agent ralph --json` even when status=ok; don’t assume messaging works—validate payloads.
 - The OpenClaw gateway log can show full run metadata even when payloads are empty; use `/tmp/openclaw/openclaw-YYYY-MM-DD.log` for diagnosis.
 
+## Iteration 11 — Add minimal validation command (smoke check) and document it
+- What was done
+  - Added `frontinus/VALIDATION.md` describing a minimal, non-invasive validation/smoke check suitable for a non-Node subdir.
+  - Ran the smoke check from the repo root: `git status --porcelain`, `git diff --stat`, `openclaw --version`.
+  - Marked the PRD task complete; committed and pushed.
+- Files affected
+  - PRD.md
+  - VALIDATION.md
+- Learnings for next cycles:
+  - Patterns
+    - When a subdirectory isn’t a package, define validation at the repo root and keep it cheap + deterministic.
+  - Traps
+    - Don’t invent `npm test`/`tsc` steps when there’s no `package.json`/`tsconfig.json` in scope.
+  - Helpful context
+    - `openclaw --version` is a safe liveness check that doesn’t touch sessions.
+---
+
 ## Iteration 2 — Prevent bootstrap files from being auto-created by the agent
 - What was done
   - Investigated where auto-creation could happen; determined it’s a process/config issue (agent ran in wrong workspace), not repo code.
