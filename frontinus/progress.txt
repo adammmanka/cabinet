@@ -3,6 +3,8 @@
 ## Learnings
 - Ralph agent can silently return **empty payloads** via `openclaw agent --agent ralph --json` even when status=ok; don’t assume messaging works—validate payloads.
 - The OpenClaw gateway log can show full run metadata even when payloads are empty; use `/tmp/openclaw/openclaw-YYYY-MM-DD.log` for diagnosis.
+- Validation checks should include a clean working tree check; stray untracked dirs/files can make “success” ambiguous.
+- Git repo root is `.../openclaw_cabinet_profiles` (one level above this agent dir). When staging/committing, run git from repo root and use paths like `frontinus/progress.txt` (not `progress.txt`).
 
 ## Iteration 11 — Add minimal validation command (smoke check) and document it
 - What was done
